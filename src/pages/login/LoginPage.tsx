@@ -1,13 +1,27 @@
-import {Box, Button, Container, TextField} from "@mui/material";
-import React, {useState} from "react";
-import {LoginPayloadDto} from "../../dtos/login/login-payload.dto";
-import LoginForm from "../../components/login-form/LoginForm";
+import { Box, Container, Link } from '@mui/material';
+import React, { FC } from 'react';
+import LoginForm from '../../components/login-form/LoginForm';
+import { useNavigate } from 'react-router-dom';
 
-const LoginPage: React.FC = () => {
-    return (
-        <div>
-           <h1>Login</h1>
-            <LoginForm></LoginForm>
-        </div>
-    );
-}
+const LoginPage: FC = () => {
+  const navigate = useNavigate();
+  const redirect = () => {
+    navigate('/register');
+  };
+
+  return (
+    <div>
+      <Container maxWidth="xs">
+        <Box>
+          <h1>Login</h1>
+          <LoginForm />
+        </Box>
+        <Box>
+          <Link onClick={redirect}>Don't have an account? Click here.</Link>
+        </Box>
+      </Container>
+    </div>
+  );
+};
+
+export default LoginPage;

@@ -1,61 +1,26 @@
-import React, { useState } from 'react';
-import { TextField, Button, Container, Box } from '@mui/material';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Box, Container, Link } from '@mui/material';
+import RegistrationForm from '../../components/registration-form/RegistrationForm';
 
-interface RegistrationFormData {
-    email: string;
-    password: string;
-}
+const RegistrationPage: React.FC = () => {
+  const navigate = useNavigate();
 
-const RegistrationForm: React.FC = () => {
-    const [formData, setFormData] = useState<RegistrationFormData>({
-        email: '',
-        password: '',
-    });
+  const redirect = () => {
+    navigate('/login');
+  };
 
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = e.target;
-        setFormData({ ...formData, [name]: value });
-    };
-
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        console.log(formData);
-    };
-
-    return (
-        <Container>
-            <Box>
-                <form onSubmit={handleSubmit}>
-                    <TextField
-                        fullWidth
-                        label="Email"
-                        variant="outlined"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        margin="normal"
-                    />
-                    <TextField
-                        fullWidth
-                        label="Password"
-                        variant="outlined"
-                        type="password"
-                        name="password"
-                        value={formData.password}
-                        onChange={handleInputChange}
-                        margin="normal"
-                    />
-                    <Button
-                        variant="contained"
-                        color="primary"
-                        type="submit"
-                    >
-                        Register
-                    </Button>
-                </form>
-            </Box>
-        </Container>
-    );
+  return (
+    <Container maxWidth="xs">
+      <Box>
+        <h1>Register</h1>
+        <RegistrationForm />
+      </Box>
+      <Box>
+        <Link onClick={redirect}>Already have an account? Click here.</Link>
+      </Box>
+    </Container>
+  );
 };
 
-export default RegistrationForm;
+export default RegistrationPage;

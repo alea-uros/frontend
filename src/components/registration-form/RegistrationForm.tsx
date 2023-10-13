@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { LoginPayloadType } from '../../types/login/login-payload.type';
 import { Button, TextField } from '@mui/material';
 
-const LoginForm: React.FC = () => {
+const RegistrationForm: React.FC = () => {
   const [formData, setFormData] = useState<LoginPayloadType>({
     email: '',
     password: '',
@@ -43,4 +43,4 @@ const LoginForm: React.FC = () => {
   );
 };
 
-export default LoginForm;
+export default RegistrationForm;
