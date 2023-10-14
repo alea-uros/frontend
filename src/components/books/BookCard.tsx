@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import React, { FC } from 'react';
 import { BookType } from '../../types/book/book.type';
 import { Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
@@ -15,6 +15,9 @@ const BookCard: FC<{ book: BookType }> = (props) => {
   return (
     <>
       <h3>{book.title}</h3>
+      <p>
+        <i>Release Date: {book.releaseDate}</i>
+      </p>
 
       <img
         style={{ maxWidth: '100%' }}

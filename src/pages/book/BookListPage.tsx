@@ -49,7 +49,11 @@ const BookListPage: FC = () => {
   return (
     <PrivateLayout>
       <h1>Search books or comics</h1>
-      <TextField fullWidth={true} placeholder={'Search...'} onChange={search}></TextField>
+      <TextField
+        fullWidth={true}
+        placeholder={'Search...'}
+        onChange={search}
+      ></TextField>
       <RadioGroup
         style={{ width: '100px' }}
         aria-labelledby="demo-radio-buttons-group-label"
