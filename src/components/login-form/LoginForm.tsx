@@ -1,13 +1,20 @@
-import React, { useState } from 'react';
+import React, { FormEvent, useState } from 'react';
 import { LoginPayloadType } from '../../types/login/login-payload.type';
 import { Button, TextField } from '@mui/material';
+import { useLoginMutation } from '../../http/auth/login';
 
 const LoginForm: React.FC = () => {
   const [formData, setFormData] = useState<LoginPayloadType>({
     email: '',
     password: '',
   });
-  const handleSubmit = () => {};
+
+  const loginMutation = useLoginMutation();
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    loginMutation.mutate(formData);
+  };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;

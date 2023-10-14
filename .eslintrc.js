@@ -1,6 +1,5 @@
 const { SSL_OP_SSLEAY_080_CLIENT_DH_BUG } = require('constants');
 module.exports = {
-  extends: ['airbnb', 'airbnb-typescript'],
   parserOptions: {
     project: './tsconfig.json',
   },
