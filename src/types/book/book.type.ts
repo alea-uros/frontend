@@ -1,6 +1,7 @@
 import { BookTypeEnum } from '../../enum/book/book-type.enum';
 import { ActorsType } from '../actors/actors.type';
 import { UserType } from '../user/user.type';
+import { RatingType } from '../rating/rating.type';
 
 export type BookType = {
   id: string;
@@ -12,4 +13,5 @@ export type BookType = {
   actors: ActorsType[];
   averageRating: number;
   user: UserType;
+  ratings: RatingType[];
 };

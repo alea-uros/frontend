@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { Rating } from '@mui/material';
 
 const BookRating: FC<{
-  onChange?: () => void;
+  onChange?: (e: React.SyntheticEvent, value: number | null) => void;
   disabled: boolean;
   readOnly: boolean;
   value: number;

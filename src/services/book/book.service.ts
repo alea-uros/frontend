@@ -29,3 +29,19 @@ export const addBook = async (data: AddBookPayloadType): Promise<BookType> => {
   const response: AxiosResponse = await httpClient.post(path, data, {});
   return response.data;
 };
+
+export const rateBook = async (data: {
+  id: string;
+  value: number;
+}): Promise<BookType> => {
+  const httpClient = new HttpService();
+  const path = httpClient.url.build(`/books/${data.id}/rate`);
+  const response: AxiosResponse = await httpClient.post(
+    path,
+    {
+      value: data.value,
+    },
+    {},
+  );
+  return response.data;
+};
