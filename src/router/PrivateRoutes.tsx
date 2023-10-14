@@ -3,9 +3,11 @@ import { Route } from 'react-router-dom';
 import BookRoutes from './book/BookRoutes';
 
 const PrivateRoutes: FC = () => {
+  const bookRoutes = BookRoutes({});
+
   return (
     <>
-      <Route element={<BookRoutes />}></Route>
+      <Route>{bookRoutes}</Route>
     </>
   );
 };

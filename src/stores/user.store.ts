@@ -1,14 +1,18 @@
 import create from 'zustand';
 import { UserType } from '../types/user/user.type';
 
-interface UserStore {
-  email: string;
-  id: string;
+interface UserStore extends UserType {
   setUser: (user: UserType) => void;
+  reset: () => void;
 }
 
-export const useUserStore = create<UserStore>((set) => ({
+const initialState: UserType = {
   email: '',
   id: '',
+};
+
+export const useUserStore = create<UserStore>((set) => ({
+  ...initialState,
   setUser: (user: UserType) => set(user),
+  reset: () => set(initialState),
 }));

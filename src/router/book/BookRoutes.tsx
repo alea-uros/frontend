@@ -1,14 +1,15 @@
 import React, { FC } from 'react';
 import { Route } from 'react-router-dom';
-import LoginPage from '../../pages/login/LoginPage';
-import RegistrationPage from '../../pages/registration/RegistrationPage';
+import BookListPage from '../../pages/book/BookListPage';
+import BookPage from '../../pages/book/BookPage';
+import AddBookPage from '../../pages/book/AddBookPage';
 
 const BookRoutes: FC = () => {
   return (
     <Route path="/books">
-      <Route path="" element={<LoginPage />} />
-      <Route path="add" element={<LoginPage />} />
-      <Route path=":bookId" element={<RegistrationPage />} />
+      <Route path="" element={<BookListPage />} />
+      <Route path="add" element={<AddBookPage />} />
+      <Route path=":bookId" element={<BookPage />} />
     </Route>
   );
 };

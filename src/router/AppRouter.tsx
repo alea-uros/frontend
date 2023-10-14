@@ -17,14 +17,14 @@ const AppRouter: React.FC = () => {
 
   const id = useUserStore((state) => state.id);
 
-  return mutation.isSuccess ? (
+  return (
     <BrowserRouter>
       <Routes>
         {!id ? publicRoutes : privateRoutes}
         <Route path="*" element={<Navigate to={!id ? '/login' : '/books'} />} />
       </Routes>
     </BrowserRouter>
-  ) : null;
+  );
 };
 
 export default AppRouter;
