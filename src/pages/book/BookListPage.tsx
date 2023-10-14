@@ -17,7 +17,7 @@ const BookListPage: FC = () => {
   const [searchFilter, setSearchFilter] = useState<SearchBooksType>({
     type: BookTypeEnum.Book,
     page: 1,
-    limit: 2,
+    limit: 10,
     query: '',
   });
 
@@ -57,13 +57,13 @@ const BookListPage: FC = () => {
       <RadioGroup
         style={{ width: '100px' }}
         aria-labelledby="demo-radio-buttons-group-label"
-        defaultValue="female"
+        defaultValue={BookTypeEnum.Book}
         name="radio-buttons-group"
         onChange={selectType}
       >
         <FormControlLabel
           key={BookTypeEnum.Book}
-          defaultChecked={false}
+          defaultChecked={true}
           value={BookTypeEnum.Book}
           control={<Radio />}
           label="Books"

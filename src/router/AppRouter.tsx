@@ -9,7 +9,9 @@ const AppRouter: React.FC = () => {
   const mutation = useCheckSessionMutation();
 
   useEffect(() => {
-    mutation.mutate();
+    if (!mutation.data) {
+      mutation.mutate();
+    }
   }, []);
 
   const publicRoutes = PublicRoutes({}, null);
@@ -17,11 +19,15 @@ const AppRouter: React.FC = () => {
 
   const id = useUserStore((state) => state.id);
 
-  return (
+  return mutation.isLoading ? null : (
     <BrowserRouter>
       <Routes>
         {!id ? publicRoutes : privateRoutes}
-        <Route path="*" element={<Navigate to={!id ? '/login' : '/books'} />} />
+
+        <Route
+          path="*"
+          element={<Navigate to={!id ? '/login' : '/books'} replace />}
+        />
       </Routes>
     </BrowserRouter>
   );
