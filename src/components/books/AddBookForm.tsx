@@ -109,8 +109,6 @@ const AddBookForm: React.FC = () => {
       coverImage: coverImage.split(',')[1],
     };
 
-    console.log(payload);
-
     mutation.mutate(payload);
   };
 
