@@ -17,7 +17,7 @@ const BookListPage: FC = () => {
   const [searchFilter, setSearchFilter] = useState<SearchBooksType>({
     type: BookTypeEnum.Book,
     page: 1,
-    limit: 10,
+    limit: 2,
     query: '',
   });
 
@@ -32,7 +32,7 @@ const BookListPage: FC = () => {
 
     if (value.length >= 3 || !value) {
       setSearchFilter((previousValue) => {
-        return { ...previousValue, query: value };
+        return { ...previousValue, query: value, page: 1 };
       });
     }
   };
